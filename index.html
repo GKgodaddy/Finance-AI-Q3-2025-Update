@@ -89,7 +89,14 @@
     .pill-row{display:flex;gap:8px;flex-wrap:wrap;row-gap:6px}
 
     @media print{header{display:none !important} body{background:#fff;padding-top:0}.card,section{box-shadow:none;border:1px solid #ddd} .pipeline-board{overflow:visible} .video-ph{background:#f5f5f5}}
-  </style>
+    /* By Function: show agent type on new row and append full tag names */
+    #functions .agent .meta{display:grid;grid-template-columns:repeat(4,max-content);gap:6px;align-items:center}
+    #functions .agent .meta .pill{grid-column:1 / -1;justify-self:start}
+    #functions .tag.process::after{content:" Agent"}
+    #functions .tag.knowledge::after{content:" Agent"}
+    #functions .tag.decision::after{content:" Agent"}
+    #functions .tag.analytics::after{content:" Agent"}
+</style>
 </head>
 <body>
   <header>
@@ -210,61 +217,118 @@
     <!-- BY FUNCTION -->
     <section id="functions">
       <h2>By Function — Live & Pilot Agents</h2>
-      <p class="sub">Each card shows outcome, status, and Hrs/month. Agent type is de‑emphasized.</p>
+      <p class="sub">Each card shows outcome, agent type, status, and Hrs/month.</p>
 
       <h3>All GD</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>SOC Report Reviewer</strong></div><div class="meta"><span class="pill">Outcome: Vendor risk assessment automation</span><span class="chip status live">Live</span><span class="chip hours">35 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>Contractor Onboarding in Workday</strong></div><div class="meta"><span class="pill">Outcome: Onboarding cycle time ↓</span><span class="chip status live">Live</span><span class="chip hours">3 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>SOC Report Reviewer</strong></div>
+          <div class="meta"><span class="pill">Vendor risk assessment automation</span><span class="tag process">Process</span><span class="chip status live">Live</span><span class="chip hours">35 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>Contractor Onboarding in Workday</strong></div>
+          <div class="meta"><span class="pill">Streamlined contractor setup</span><span class="tag process">Process</span><span class="chip status live">Live</span><span class="chip hours">3 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>All Finance</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>SOX Control Owner Copilot</strong></div><div class="meta"><span class="pill">Outcome: Proactive compliance guidance</span><span class="chip status live">Live</span><span class="chip hours">40 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>SDLC Navigator</strong></div><div class="meta"><span class="pill">Outcome: Audit artifact identification</span><span class="chip status live">Live</span><span class="chip hours">40 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>AI Role Validator</strong></div><div class="meta"><span class="pill">Outcome: Access evaluation workflow</span><span class="chip status live">Live</span><span class="chip hours">30 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>Finance Experimentation Agent</strong></div><div class="meta"><span class="pill">Outcome: A/B test analysis automation</span><span class="chip status live">Live</span><span class="chip hours">5 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>SOX Control Owner Copilot</strong></div>
+          <div class="meta"><span class="pill">Proactive compliance guidance</span><span class="tag knowledge">Knowledge</span><span class="chip status live">Live</span><span class="chip hours">40 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>SDLC Navigator</strong></div>
+          <div class="meta"><span class="pill">Audit artifact identification</span><span class="tag knowledge">Knowledge</span><span class="chip status live">Live</span><span class="chip hours">40 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>AI Role Validator</strong></div>
+          <div class="meta"><span class="pill">Access evaluation workflow</span><span class="tag decision">Decision</span><span class="chip status live">Live</span><span class="chip hours">30 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>Finance Experimentation Agent</strong></div>
+          <div class="meta"><span class="pill">A/B test analysis automation</span><span class="tag analytics">Analytics</span><span class="chip status live">Live</span><span class="chip hours">5 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>ARC</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>SOX Design Assessment Agent</strong></div><div class="meta"><span class="pill">Outcome: Design assessment automation</span><span class="chip status live">Live</span><span class="chip hours">17 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>IA Planning Agent</strong></div><div class="meta"><span class="pill">Outcome: IA planning acceleration</span><span class="chip status live">Live</span><span class="chip hours">23 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>SOX Design Assessment Agent</strong></div>
+          <div class="meta"><span class="pill">Design assessment automation</span><span class="tag knowledge">Knowledge</span><span class="chip status live">Live</span><span class="chip hours">17 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>IA Planning Agent</strong></div>
+          <div class="meta"><span class="pill">IA planning acceleration</span><span class="tag knowledge">Knowledge</span><span class="chip status live">Live</span><span class="chip hours">23 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>AP</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>Workday OCR Supplier Invoice Automation</strong></div><div class="meta"><span class="pill">Outcome: OCR invoice processing automation</span><span class="chip status live">Live</span><span class="chip hours">120 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>Workday OCR Supplier Invoice Automation</strong></div>
+          <div class="meta"><span class="pill">OCR invoice processing automation</span><span class="tag process">Process</span><span class="chip status live">Live</span><span class="chip hours">120 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>Treasury</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>Copilot Banking Requirements Agent</strong></div><div class="meta"><span class="pill">Outcome: Banking requirement guidance</span><span class="chip status live">Live</span><span class="chip hours">25 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>Copilot Banking Requirements Agent</strong></div>
+          <div class="meta"><span class="pill">Banking requirement guidance</span><span class="tag knowledge">Knowledge</span><span class="chip status live">Live</span><span class="chip hours">25 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>Accounting</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>Customer Credit Monitoring Agent</strong></div><div class="meta"><span class="pill">Outcome: Real‑time credit risk assessment</span><span class="chip status pilot">Pilot</span><span class="chip hours">15 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>Customer Credit Monitoring Agent</strong></div>
+          <div class="meta"><span class="pill">Real‑time credit risk assessment</span><span class="tag decision">Decision</span><span class="chip status pilot">Pilot</span><span class="chip hours">15 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>FDAT</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>Portfolio Leadership Dashboard using Claude</strong></div><div class="meta"><span class="pill">Outcome: Executive dashboard automation</span><span class="chip status live">Live</span><span class="chip hours">5 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>Product Launch Analyst</strong></div><div class="meta"><span class="pill">Outcome: Launch performance analysis</span><span class="chip status live">Live</span><span class="chip hours">10 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>Demo of GBU Intake Agent Interaction</strong></div><div class="meta"><span class="pill">Outcome: Intake process automation</span><span class="chip status pilot">Pilot</span><span class="chip hours">1 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>Calendar Automation</strong></div><div class="meta"><span class="pill">Outcome: Shared calendar automation</span><span class="chip status pilot">Pilot</span><span class="chip hours">3 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>AI Business Agent</strong></div><div class="meta"><span class="pill">Outcome: Business analysis automation</span><span class="chip status live">Live</span><span class="chip hours">20 Hrs/month</span></div></div>
-        <div class="card agent"><div><strong>MBR Agent</strong></div><div class="meta"><span class="pill">Outcome: Monthly business review support</span><span class="chip status pilot">Pilot</span><span class="chip hours">5 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>Portfolio Leadership Dashboard using Claude</strong></div>
+          <div class="meta"><span class="pill">Executive dashboard automation</span><span class="tag analytics">Analytics</span><span class="chip status live">Live</span><span class="chip hours">5 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>Product Launch Analyst</strong></div>
+          <div class="meta"><span class="pill">Launch performance analysis</span><span class="tag analytics">Analytics</span><span class="chip status live">Live</span><span class="chip hours">10 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>Demo of GBU Intake Agent Interaction</strong></div>
+          <div class="meta"><span class="pill">Intake process automation</span><span class="tag process">Process</span><span class="chip status pilot">Pilot</span><span class="chip hours">1 Hr/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>Calendar Automation</strong></div>
+          <div class="meta"><span class="pill">Shared calendar automation</span><span class="tag analytics">Analytics</span><span class="chip status pilot">Pilot</span><span class="chip hours">3 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>AI Business Agent</strong></div>
+          <div class="meta"><span class="pill">Business analysis automation</span><span class="tag knowledge">Knowledge</span><span class="chip status live">Live</span><span class="chip hours">20 Hrs/month</span></div>
+        </div>
+        <div class="card agent">
+          <div><strong>MBR Agent</strong></div>
+          <div class="meta"><span class="pill">Monthly business review support</span><span class="tag analytics">Analytics</span><span class="chip status pilot">Pilot</span><span class="chip hours">5 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>Equity</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>Equity FAQ Bot</strong></div><div class="meta"><span class="pill">Outcome: Self‑serve equity inquiries</span><span class="chip status pilot">Pilot</span><span class="chip hours">5 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>Equity FAQ Bot</strong></div>
+          <div class="meta"><span class="pill">Self‑serve equity inquiries</span><span class="tag knowledge">Knowledge</span><span class="chip status pilot">Pilot</span><span class="chip hours">5 Hrs/month</span></div>
+        </div>
       </div>
 
       <h3>Payroll</h3>
       <div class="grid cols-3">
-        <div class="card agent"><div><strong>Payroll FAQ Bot</strong></div><div class="meta"><span class="pill">Outcome: Automated payroll Q&A</span><span class="chip status pilot">Pilot</span><span class="chip hours">5 Hrs/month</span></div></div>
+        <div class="card agent">
+          <div><strong>Payroll FAQ Bot</strong></div>
+          <div class="meta"><span class="pill">Automated payroll Q&amp;A</span><span class="tag knowledge">Knowledge</span><span class="chip status pilot">Pilot</span><span class="chip hours">5 Hrs/month</span></div>
+        </div>
       </div>
     </section>
 
